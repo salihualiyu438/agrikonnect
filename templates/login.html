@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+</head>
+
+<body>
+  <header>
+    <div class="headtext">
+      <div>
+        <p>
+          AgriKonnect
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!--main body starts-->
+
+  <main>
+    <h2>
+      LOGIN
+    </h2>
+    <p class="enter-details">
+      Enter your details below.
+    </p>
+    <div class="main">
+      <div class="form-div">
+        <form action="login" method="post">
+          {% csrf_token %}
+          <div class="input-div">
+           
+            <input class="input" name="username" type="text" id="username"  placeholder="username" required>
+          </div>
+
+          <div class="input-div">
+           
+            <input class="input" name="password" type="password" id="password" placeholder="enter password" required>
+          </div>
+
+          <div class="input-div">
+            
+            <label style="font-size: 13px; color: black;" for="cbox"> Remember Me</label>
+          </div>
+
+          <div class="input-div">
+            <button type="submit" class="button">
+            LOGIN
+            </button>
+          </div>
+        </form>
+      </div>
+      
+      <div class="last-content">
+        <div style="margin-top: 20px;">
+          <a style="font-size: 14px; font-family: serif;
+          font-weight: 600; color: blue; " href="/authentication/password_reset">Forgot Password</a>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <p style=" margin-left: 10px; font-size: 14px; font-family: serif; font-weight: 600; color: black;">
+            Do not have an account?
+            <a style="font-size: 14px; font-family: serif; font-weight: 600; color: blue;" 
+            href="sign_up">
+            sign up
+          </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  {% for message in messages %}
+  <div>{{message}}</div>
+  {% endfor %}
+</body>
+</html>

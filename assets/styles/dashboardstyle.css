@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+
+}
+p{
+    margin-bottom: 0;
+}
+header {
+    background-color: darkgreen;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    padding-left: 20px;
+}
+    header h3 {
+        margin: 0;
+}
+.profile-section {
+    margin-bottom: 20px;
+}
+.profile-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    margin-left: 420px;
+    cursor: pointer;
+    position: relative;
+}
+.profile-info {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 30px;
+    /* margin-left: 100px; */
+}
+.info-group {
+    margin-bottom: 10px;
+    margin-left: 250px;
+}
+.label {
+    font-weight: 500;
+    margin-right: 5px;
+}
+.value {
+    margin-right: 20px;
+}
+.label, .value {
+    display: inline-block;
+}
+.phone-label {
+    font-weight: 500;
+    margin-left: 250px;
+}
+.process {
+    font-weight: bold;
+    margin-left: 420px;
+    margin-top: 5px;
+    font-size: 18px;
+}
+.land-section {
+    margin-top: 20px;
+    display: flex;
+    gap: 300px;
+    justify-content: start;
+    align-items: flex-start;
+    margin-left: 130px;
+}
+.land-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 150px;
+}
+.land-label {
+    font-weight: 500;
+    margin-right: 45px;
+    margin-left: 0px;
+}
+.land-value {
+    width: 300px;
+    margin-left: 170px;
+    font-size: 14px;
+}
+.button-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 400px;
+    margin-top: 70px;
+    vertical-align: top;
+    margin-left: 140px;
+}
+.add-land-btn, .available-land-btn {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+.add-land-btn {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: darkgreen;
+    color: #fff;
+    padding: 10px 20px;
+}
+.add-land-btn:active {
+    background-color: #4CAF50;
+    color: #fff;
+    transition: 0.15s;
+}
+.available-land-btn {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: darkgreen;
+    color: #fff;
+    padding: 3px 20px;
+}
+.available-land-btn:active {
+    background-color: #4CAF50;
+    color: #fff;
+    transition: 0.15s;
+}
+.land-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    max-width: 400px;
+    margin-left: 270px;
+    margin-top: 10px;
+}
+.land-form label {
+    font-weight: 500;
+}
+.land-form input, .land-form textarea {
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.land-form textarea {
+    resize: vertical;
+}
+.form-btn {
+    background-color: darkgreen;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form-btn:active {
+    background-color: #4CAF50;
+    color: #fff;
+    transition: 0.15s;
+}
+    #image-upload {
+        position: absolute;
+        opacity: 0;
+        z-index: 1;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+}
+.container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+input[type="email"] {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+.submit-button {
+    width: 100%;
+    height: 40px;
+    background-color: darkgreen;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-button:active {
+    background-color: #4CAF50;
+    opacity: 0.15s;
+}
+.reset-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.reset-container {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+}
+label {
+    display: block;
+   margin-bottom: 10px;
+}
+input[type="password"] {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.reset-button {
+    width: 100%;
+    height: 40px;
+    background-color: darkgreen;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.reset-button:active {
+    background-color: #4CAF50;
+    transition: 0.15s;
+}

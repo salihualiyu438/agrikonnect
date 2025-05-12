@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notifications</title>
+    <link rel="stylesheet" href="{% static 'styles/notification.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div>
+                <h2>AgriKonnect</h2>
+            </div>
+            <div>
+                <a class="top-link" href="/">Home</a>
+            </div>
+        </div>
+    </header>
+           <!--=== main contents ===-->
+    <main>
+        <div class="request-list">
+            <div>
+                <h3 style="font-family: century gothic;
+                  margin-bottom: 5px;
+                ">Requests</h3>
+            </div>
+            <hr>
+            <!--1st row-->
+            <div class="request-box">
+                <div class="request">
+                    <div style="width: 40px;">
+                        <img class="profile-picture" src="images/profile.png" alt="">
+                    </div>
+                    <div class="identity">
+                        <p class="username">Salihu Aliyu Abdulkareem</p>
+                        <p class="address">salihualiyu438@gmail.com</p>
+                    </div>
+                </div>
+                <div class="plot">
+                    <p class="username">Plot Name</p>
+                    <p class="address">Soba town kaduna state</p>
+                </div>
+                <div class="confirm-button-box">
+                    <button class="confirm-button">Confirm</button>
+                </div>
+                <div class="time-box">
+                    <p class="time">6:45pm</p>
+                </div>
+            </div>
+            <hr>
+            <!--2nd row-->
+            <div class="request-box">
+                <div class="request">
+                    <div style="width: 40px;">
+                        <img class="profile-picture" src="images/channel-1.jpeg" alt="">
+                    </div>
+                    <div class="identity">
+                        <p class="username">Mustapha Abubakar</p>
+                        <p class="address">mystyabu8@gmail.com</p>
+                    </div>
+                </div>
+                <div class="plot">
+                    <p class="username">Plot Name</p>
+                    <p class="address">Tudun Biye Zaria kaduna</p>
+                </div>
+                <div class="confirm-button-box">
+                    <button class="confirm-button">Confirm</button>
+                </div>
+                <div class="time-box">
+                    <p class="time">
+                        Yesterday
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <!-- 3rd row -->
+             {% for notification in notifications %}
+            <div class="request-box">
+                <div class="request">
+                    <div style="width: 40px;">
+                        <img class="profile-picture" src="images/profile.png" alt="">
+                    </div>
+                    <div class="identity">
+                        <p  class="username">{{notification.first_name}} {{notification.last_name}}</p>
+                        <p class="address">{{notification.email}}</p>
+                    </div>
+                </div>
+                <div class="plot">
+                    <p class="username">Plot Name</p>
+                    <p class="address"><a style="text-decoration: none;" href="{% url 'farmland_detail' notification.farmland.id %}">{{ notification.farmland.name }}</a></p>
+                </div>
+                <div class="confirm-button-box">
+                    <button class="confirm-button">Confirm</button>
+                </div>
+                <div class="time-box">
+                    <p class="time">8:00am</p>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+    </main>
+    
+</body>
+</html>

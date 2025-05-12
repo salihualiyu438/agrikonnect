@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriKonnect home</title>
+    <link rel="stylesheet" href="{% static 'styles/home2.css' %}">
+</head>
+<body>
+    <header>
+        <div class="headbox">
+                <div class="menu-toggle">
+                    <img class="menu-icon"  src="{% static 'images/menu.png' %}">
+                    <div class="menu-list">
+                        <ul class="list">
+                            {% if user.is_authenticated %}
+                            <li class="list-item"><a href="dashboard/dashboard" class="item-link">Dashboard</a></li>
+                            {% endif %}
+                            <li class="list-item"><a href="about_us/about-us" class="item-link">About Us</a></li>
+                            <li class="list-item"><a href="terms_and_conditions/terms_of_service" class="item-link">Terms of services</a></li>
+                            <li class="list-item"><a href="privacy_policy/privacy_policy" class="item-link">Privacy/policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            <div class="head-logo-box">
+                <p class="head-logo">AgriKonnect</p>
+            </div>
+            {% if user.is_authenticated %}
+            <div>
+                <p style="color: aliceblue;">
+                Hi, {{user.username}}
+                </p>
+            </div>
+            {% endif %}
+
+            <div class="account">
+                {% if user.is_authenticated %}
+
+                
+                <div style="width: 90px;">
+                    <button class="top-button1" onclick="window.location.href='accounts/logout';">
+                            logout
+                    </button>
+                </div>
+            {% else %}
+                <div style="width: 90px;">
+                    <button class="top-button1" onclick="window.location.href='accounts/sign_up';">
+                            register
+                    </button>
+                </div>
+                <div style="width: 70px;">
+                    <button class="top-button2" onclick="window.location.href='accounts/login';">
+                            Login
+                    </button>
+                </div>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <div style="width: 30px; padding: 10px; background-color: rgb(200, 38, 181); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <p style="font-family: century gothic; font-weight: 700; color:aliceblue; font-size: 22px">{{user.first_name}}</p>
+                     
+                </div>
+                {% else %}
+                <div style="width: 40px; ">
+                    <img style="width: 40px; background-color:white;  border-radius: 50%;" src="{% static 'images/profile.png' %}" alt="">
+                     
+                </div>
+                {% endif %}
+       
+            </div>
+        </div>
+    </header>
+
+    <!--main body content-->
+
+    <main class="main-grid">
+    
+        <!--all main grid goes here-->
+
+            <div class="welcome-notes">
+                <div style="width: 70%;">
+                    <h1 style=" margin-bottom: 10px; 
+                    font-family: century gothic;
+                    text-align: center; 
+                    color: rgb(8, 54, 12);">
+                        Welcome
+                    </h1>
+                    <p  class="welcome-notes-p">
+                        Welcome to AgriKonnect, a platform that allows you to easily get access to your
+                        convenient piece of land to rent or purchase on a condition. it also gives you 
+                        the opportunity to advertise your own farmland for either hiring or selling.
+                        This platform also allows you to buy or rent farmland for a specific peiod of time.
+                        Feel free to go through our site to have a look at the available lands, you can also
+                        add a land you want to rentout or sellout.
+                        Make sure to read our 
+                       <strong style="color: rgb(8, 54, 12);"><a href="terms_and_conditions/terms_of_service">terms of services</a> </strong>, before making any land reservation or request.
+    
+                    </p>
+                </div>
+            </div>
+            
+            <!-- side image -->
+
+            <!--available land grid-->
+
+            <div class="background-box">
+                <h1 style="color: rgb(14, 34, 14); margin-bottom: 30px; text-align: center; 
+                    font-family: century gothic;
+                    ">
+                    Available lands 
+                </h1>
+                <div class="available-lands-box">
+                    <div class="lands-box-content">
+                        <!--first farmland-->
+                        {% for plot in plots %}
+                        <div class="farmlands">
+                            <div class="land-description-box">
+                                <div class="land-image-box">
+                                    <img class="land-images" src="{{plot.image.url}}" width="300" height="300" alt="">
+                                </div>
+                                <!--specifications-->
+                                <div class="specifications">
+                                    <ul>
+                                        <li>
+                                            <strong>Size in Hectares: </strong>{{plot.size_in_hectares}}
+                                        </li>
+                                        <li>
+                                            <strong>Location:</strong> {{plot.location}}
+                                        </li>
+                                        {% if plot.for_sale %}
+                                        <li>
+                                            <strong>Sale Price:</strong> {{plot.sale_price}}
+                                         
+                                        </li>
+                                        {% endif %}
+                                        {% if plot.for_rent %}
+                                        <li>
+                                            <strong>Rent Price:</strong> {{plot.rent_price}} 
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                
+                                <!--action buttons-->
+                                <div class="action-box">
+                                    <div>
+                                        <!-- <button class="action-button1"  -->
+                                        
+                                        <a  style="color: rgb(185, 172, 243);
+                                                                        font-family: century gothic;
+                                                                        font-size: 14px;
+                                                                        text-decoration: none;
+                                                                        background: rgb(14, 34, 14);
+                                                                        padding: 10px;
+                                                                        /* transition: .8s; */
+                                                                        border-radius: 3px;"
+                                            href="{% url 'more_details' plot.pk %}">
+                                            More details
+                                        </a>
+                                        <!-- </button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+                            
+            <!--end of farmland box-->
+    </main>
+
+    <!-- footer starts here -->
+
+    <footer>
+        <div class="footer-div">
+            <div class="footer-content">
+                <div class="f-link-box">
+                    <a class="f-links" href="about_us/about-us">About Us</a>
+                </div>
+                <div class="f-link-box">
+                    <a class="f-links" href="terms_and_conditions/terms_of_service">Terms Of Services</a>
+                </div>
+                <div class="f-link-box">
+                    <a class="f-links" href="privacy_policy/privacy_policy">privacy/policy</a>
+                </div>
+            </div>
+            <!--===contact us box===-->
+            <div class="contact-us-box">
+                <div style="width: 100px;">
+                    <h4 style="font-family: century gothic;
+                        color: rgb(14, 34, 14);">
+                        Contact Us:
+                    </h4>
+                </div>
+                <div style="width: 120px;">
+                    <p style="font-family: century gothic;
+                        color: rgb(14, 34, 14); font-size: 14px;
+                        font-weight: 550;">
+                        +2348104767353
+                    </p>
+                    <p style="font-family: century gothic;
+                        color: rgb(14, 34, 14); font-size: 14px;
+                        font-weight: 550;">
+                        +2347072876737
+                    </p>
+                    <p style="font-family: century gothic;
+                        color: rgb(14, 34, 14); font-size: 14px;
+                        font-weight: 550;">
+                        +2349025858708
+                    </p>
+                </div>
+                <div style="width:200px;">
+                    <p style="font-family: century gothic;
+                        color: rgb(14, 34, 14); font-size: 14px;
+                        font-weight: 550;">
+                        salihualiyu438@gmail.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--===javascript===-->
+
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const menuElements = document.querySelector('.menu-list');
+
+        menuIcon.addEventListener('click', () => {
+            menuElements.style.display = menuElements.style.display === 'block' ? 'none': 'block';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!menuIcon.contains(event.target) && !menuElements.contains(event.target)) {
+                menuElements.style.display = 'none';
+            }
+        });
+        
+    </script>
+</body>
+</html>

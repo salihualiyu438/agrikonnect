@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles/dashboardstyle.css' %}">
+</head>
+<body>
+    <header>
+        <h3>Agrikonnect</h3>
+    </header>
+    <div class="popup-content">
+        <div class="profile-section">
+            <!-- <label for="image-upload"> -->
+                <img class="profile-logo" style="width: 50px; height: 50px;" src="{{user.Userprofile.profile_image.url}}" alt="profile picture">
+                <!-- <input type="file" id="image-upload" style="display: none;"> -->
+            <!-- </label> -->
+            <div style="margin-left: 380px">
+                
+                <a style="text-decoration: none;" href="profile_photo"><h3>
+                    add profile photo
+                </h3>
+                </a>
+            </div>
+            <div class="profile-info">
+                <div class="info-group">
+                    <span class="label">Name:</span>
+                    <span class="value">ibrahim abdulkadir</span>
+                    <span class="label" style="margin-left: 20px;">Email:</span>
+                    <span class="value">iabdulkadir@example.com</span>
+                </div>
+                <span class="phone-label">Phone No:</span>
+                <span class="phone-value">+234-8169277178</span>
+            </div>
+            <div class="process">Process</div>
+            <div class="land-section">
+                <div class="land-info">
+                    <span class="land-label">Rented Land</span>
+                    <span class="land-value" id="rented-land">5 Hectares in kinkiba, soba local government suitable for vegetable production.</span>
+                </div>
+                <div class="land-info">
+                    <span class="land-label">Bought Land</span>
+                    <span class="land-value" id="bought-land">13 Hectares in kofar kona, zaria local government suitable for rice production.</span>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="add-land-btn" onclick="location.href='dashboard'">Premiun Feature</button>
+                <button class="available-land-btn" onclick="location.href='/'">Available Lands</button>
+         </div>
+    </div>
+</body>
+</html>

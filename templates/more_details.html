@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More details</title>
+    <link rel="stylesheet" href="{% static 'styles/more_details.css' %}">
+</head>
+<body>
+    <header>
+        <div>
+            <h1 style="font-family: century gothic; text-align: center; 
+                 color: rgb(206, 243, 243); ">
+                More Details
+            </h1>
+        </div>
+    </header>
+
+    <!--==== main contents=====-->
+
+    <main>
+        <div id="main-contents">
+            <div id="inner-items-group">
+                <!--===button of terms of services===-->
+
+                <div class="terms-button-box">
+                    <div class="terms-button-element">
+                        <button class="terms-button">
+                            <a style="text-decoration: none;" href="{% url 'terms_of_service' %}">Terms of Services</a>
+                        
+                    </button>
+                    </div>
+                </div>
+
+                <!--===land specifications===-->
+                <div class="specs-box">
+                    <div class="landspecs-box">
+                        <div class="land-value">
+                            <h3 style="font-family: century gothic; color: rgb(14, 34, 14);
+                            margin-bottom: 15px;">
+                                Land Specifications
+                            </h3>
+                           
+                            <div>
+                                <dl>
+                                   
+                                    <div class="spec2">
+                                        <strong><dt>Name of owner:</dt></strong>
+                                        <dd>{{plots.name_of_owner}}.</dd>
+                                    </div>
+                                    <div class="spec1">
+                                        <strong><dt>Size:</dt></strong>
+                                        <dd>{{plots.size_in_hectares}}</dd>
+                                    </div>
+                                    <div class="spec2">
+                                        <strong><dt>Location:</dt></strong>
+                                        <dd>{{plots.location}}.</dd>
+                                    </div>
+                                    <div class="spec1">
+                                        <strong><dt>suitable crop:</dt></strong>
+                                        <dd> {{plots.suitable_crops}} </dd>
+                                    </div>
+                                    <div class="spec2">
+                                        <strong><dt>harvest estimate:</dt></strong>
+                                        <dd>{{plots.estimate_of_harvest_yield}}</dd>
+                                    </div>
+                                    {% if plots.for_sale %}
+                                    <div class="spec1">
+                                        <strong><dt>Buying Price:</dt></strong>
+                                        <dd>{{plots.sale_price}}</dd>
+                                    </div>
+                                    {% endif %}
+                                        {% if plots.for_rent %}
+                                    <div class="spec2">
+                                        <strong><dt>Renting Price:</dt></strong>
+                                        <dd>{{plots.rent_price}}</dd>
+                                    </div>
+                                    {% endif %}
+                                    
+                                </dl>
+                            </div>
+                            
+                        </div>
+                        <div class="side-image-box">
+                            <img style="width: 350px; height: 350px; border-radius: 8px; " 
+                            src="{{plots.image.url}}" alt="">
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="response-buttons-box">
+                    <div>
+                        <button class="reserve-button">
+                            <a  style="text-decoration: none;" href="{% url 'notifications' %}">Purchase/Rent</a>
+                        </button>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
