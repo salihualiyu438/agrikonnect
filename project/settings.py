@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hpl))g787_@m259(-x3_ryiw$2ux(##hx$$@4gldz)87&9-*u+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'agrikonnect.pythonanywhere.com'
