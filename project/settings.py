@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hpl))g787_@m259(-x3_ryiw$2ux(##hx$$@4gldz)87&9-*u+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'agrikonnect.pythonanywhere.com'
@@ -92,12 +92,13 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'project',
-        'USER': 'postgres',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'agrikonnect$default',
+        'USER': 'agrikonnect',
+        # 'HOST': 'localhost',
+        'HOST': 'agrikonnect.mysql.pythonanywhere-services.com',
         'PASSWORD': '917354628@Salihu',
-        'PORT': '5432'
+        'PORT': '3306'
     }
 }
 
@@ -139,6 +140,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS =[ 
     os.path.join('static')
 ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = '/home/salihualiyu438/agrikonnect/static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

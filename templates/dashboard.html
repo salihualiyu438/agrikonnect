@@ -27,26 +27,26 @@
             <div class="profile-info">
                 <div class="info-group">
                     <span class="label">Name:</span>
-                    <span class="value">ibrahim abdulkadir</span>
+                    <span class="value">{{user.first_name}} {{user.last_name}}</span>
                     <span class="label" style="margin-left: 20px;">Email:</span>
-                    <span class="value">iabdulkadir@example.com</span>
+                    <span class="value">{{user.email}}</span>
                 </div>
                 <span class="phone-label">Phone No:</span>
-                <span class="phone-value">+234-8169277178</span>
+                <span class="phone-value">Not set</span>
             </div>
             <div class="process">Process</div>
             <div class="land-section">
                 <div class="land-info">
                     <span class="land-label">Rented Land</span>
-                    <span class="land-value" id="rented-land">5 Hectares in kinkiba, soba local government suitable for vegetable production.</span>
+                    <span class="land-value" id="rented-land">None</span>
                 </div>
                 <div class="land-info">
                     <span class="land-label">Bought Land</span>
-                    <span class="land-value" id="bought-land">13 Hectares in kofar kona, zaria local government suitable for rice production.</span>
+                    <span class="land-value" id="bought-land"> None</span>
                 </div>
             </div>
             <div class="button-container">
-                <button class="add-land-btn" onclick="location.href='dashboard'">Premiun Feature</button>
+                <!-- <button class="add-land-btn" onclick="location.href='dashboard'">Premiun Feature</button> -->
                 <button class="available-land-btn" onclick="location.href='/'">Available Lands</button>
          </div>
     </div>

@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from .forms import UserProfileForm
 from notifications.models import UserProfile
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
 
 def dashboard(request):
-
-    return render(request, 'dashboard.html')
+    if User.is_authenticated:
+        return render(request, 'dashboard.html')
+    else:
+        return redirect('/')
 @login_required
 def profile_photo(request):
     if request == 'POST':
