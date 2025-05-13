@@ -23,11 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hpl))g787_@m259(-x3_ryiw$2ux(##hx$$@4gldz)87&9-*u+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    # '127.0.0.1:8000'
-    # 'Agrikonnect.herokuapp.com'
+    'agrikonnect.pythonanywhere.com'
 ]
 
 
@@ -98,7 +97,7 @@ DATABASES = {
         'USER': 'postgres',
         'HOST': 'localhost',
         'PASSWORD': '917354628@Salihu',
-        'PORT': '5433'
+        'PORT': '5432'
     }
 }
 
@@ -136,11 +135,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS =[ 
     os.path.join('static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_ROOT = '/home/salihualiyu438/agrikonnect/static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
